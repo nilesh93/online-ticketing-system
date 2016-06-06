@@ -1,0 +1,15 @@
+{
+  "name": "infoseek-nilesh",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nilesh Jayanandana",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "ui-bootstrap": "^0.1.0"
+  }
+}

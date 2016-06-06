@@ -1,0 +1,127 @@
+<div class="pageheader">
+    <h2>Participants</h2>
+
+</div>
+<section id="main-content">
+    <div class="row">
+
+        <div class="col-md-12">
+            
+
+
+        </div>
+    </div>
+      <uib-tabset active="active">
+    <uib-tab index="0" heading="Pending Participants">
+          
+            <div class="panel panel-default">
+
+                <div class="panel-heading">
+
+                    <h3 class="panel-title">Pending Participants</h3>
+                </div>
+
+                <div class="panel panel-body">
+                    <input type="text" placeholder="search" class="form-control input-sm" ng-model="search"> 
+
+                </div>
+                <table class="table table-hover table-condensed table-bordered table-striped" style="font-size:85%">
+                    <thead>
+                        <tr class="">                <th>Reg No</th>    
+                            <th>Company Name</th>    
+                            <th>Type</th>    
+                            <th>No of users</th>    
+                            <th>Payment</th>    
+                            <th style="width:100px">Action</th>    
+                        </tr>
+
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>101</td>
+                            <td>NILESH</td>
+                            <td>Company</td>
+                            <td>10</td>
+                            <td>Pending</td>
+                            <td><button  class="btn btn-sm btn-block btn-danger " ng-click="pinfo()">Pay</button></td>
+
+
+
+                        </tr>
+                        
+                            <tr>
+                            <td>101</td>
+                            <td>NILESH</td>
+                            <td>Company</td>
+                            <td>10</td>
+                            <td>Pending</td>
+                            <td><button  class="btn btn-sm btn-block btn-danger " ng-click="single()">Pay</button></td>
+
+
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+          
+          
+          
+          </uib-tab>
+ 
+    <uib-tab index="3"  >
+      <uib-tab-heading>
+      All Participants
+      </uib-tab-heading>
+     
+               <div class="panel panel-default">
+
+                <div class="panel-heading">
+
+                    <h3 class="panel-title">All Participants</h3>
+                </div>
+
+                <div class="panel panel-body">
+                    <input type="text" placeholder="search" class="form-control input-sm" ng-model="search"> 
+
+                </div>
+                <table class="table table-hover table-condensed  table-bordered table-striped" style="font-size:85%">
+                    <thead>
+                        <tr class="">                <th>Reg No</th>    
+                            <th>Company Name</th>    
+                            <th>No of users</th>    
+                            <th>Payment</th>    
+                            <th style="width:100px">Action</th>    
+                        </tr>
+
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td>101</td>
+                            <td>NILESH</td>
+                            <td>10</td>
+                            <td>Pending</td>
+                            <td><button  class="btn btn-sm btn-block btn-success " ng-click="pinfo()">View</button></td>
+
+
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+          
+        
+    </uib-tab>
+  </uib-tabset>
+</section>
