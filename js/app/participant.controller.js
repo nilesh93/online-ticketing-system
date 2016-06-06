@@ -10,7 +10,8 @@
     function ParticipantController($scope,$http,BootsrapService){
 
 
-
+        var self = this;
+        
         $scope.pinfo = function(){
 
             self.modal  =  BootsrapService.modal({
@@ -27,6 +28,14 @@
                 scope: $scope
             });
 
+        };
+        
+        
+        $scope.cancel = function () {
+
+             self.modal.dismiss('cancel');
+
+             
         };
 
     }
