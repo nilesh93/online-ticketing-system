@@ -6,122 +6,248 @@
     <div class="row">
 
         <div class="col-md-12">
-            
+
 
 
         </div>
     </div>
-      <uib-tabset active="active">
-    <uib-tab index="0" heading="Pending Participants">
-          
-            <div class="panel panel-default">
+    <uib-tabset active="active">
+        <uib-tab index="0" heading="Pending Participants">
 
-                <div class="panel-heading">
+            <div class="row" style="padding-top:1%">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
 
-                    <h3 class="panel-title">Pending Participants</h3>
+                        <div class="panel-heading">
+
+                            <h3 class="panel-title"><span class="label label-warning"> Pending </span>  &nbsp;&nbsp; Company Participants</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <div  > 
+                                <input type="text" placeholder="search" class="form-control input-sm" ng-model="companySearch" > 
+                            </div>
+
+                            <hr>
+                            <table class="table table-hover table-condensed table-bordered table-striped" style="font-size:75%">
+                                <thead>
+                                    <tr class="">                <th>Reg No</th>    
+                                        <th>Company Name</th>    
+                                        <th>Type</th>    
+                                        <th style="width:10px">  Users</th>    
+                                        <th>Payment</th>    
+                                        <th style="width:70px">Action</th>    
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+
+                                    <tr ng-repeat=" x in participants.comapany | filter : companySearch" ng-if="x.company_paymant_status == 0">
+                                        <td>{{x.company_order_code}}</td>
+                                        <td>{{x.company_name}}</td>
+                                        <td>{{x.packagers_name}}</td>
+                                        <td>{{x.user_count}}</td>
+                                        <td>
+                                            <span ng-if="x.company_paymant_status == 0" class="label label-warning">Pending</span>
+                                            <span ng-if="x.company_paymant_status == 1" class="label label-success">Paid</span>
+
+                                        </td>
+                                        <td><button  class="btn btn-sm btn-block btn-success " ng-click="pinfo($index)">Pay</button></td>
+
+
+
+                                    </tr>
+
+            
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="panel panel-body">
-                    <input type="text" placeholder="search" class="form-control input-sm" ng-model="search"> 
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+
+                            <h3 class="panel-title"><span class="label label-warning"> Pending </span>  &nbsp;&nbsp; Individual Participants</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <div > 
+                                <input type="text" placeholder="search" class="form-control input-sm" ng-model="singleSearch" > 
+                            </div>
+                            <hr>
+
+                         
+                            <table class="table table-hover table-condensed table-bordered table-striped" style="font-size:75%">
+                                <thead>
+                                    <tr class="">               
+                                        <th>Reg No</th>    
+                                        <th>Name</th>    
+                                        <th>Type</th>    
+                                             
+                                        <th>Payment</th>    
+                                        <th style="width:70px">Action</th>    
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+
+                                    <tr ng-repeat=" x in participants.individual | filter : singleSearch" ng-if="x.payment_status == 0"  >
+                                        <td>{{x.participant_index_no}}</td>
+                                        <td> {{x.participant_title}} {{x.participant_name}}</td>
+                                        <td>{{x.packagers_name}}</td>
+                                        <td>
+                                            <span ng-if="x.payment_status == 0" class="label label-warning">Pending</span>
+                                            <span ng-if="x.payment_status == 1" class="label label-success">Paid</span>
+
+                                        </td>
+                                        <td><button  class="btn btn-sm btn-block btn-success " ng-click="single($index)">Pay</button></td>
+
+
+
+                                    </tr>
+
+
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
 
                 </div>
-                <table class="table table-hover table-condensed table-bordered table-striped" style="font-size:85%">
-                    <thead>
-                        <tr class="">                <th>Reg No</th>    
-                            <th>Company Name</th>    
-                            <th>Type</th>    
-                            <th>No of users</th>    
-                            <th>Payment</th>    
-                            <th style="width:100px">Action</th>    
-                        </tr>
 
-                    </thead>
-                    <tbody>
-
-                        <tr>
-                            <td>101</td>
-                            <td>NILESH</td>
-                            <td>Company</td>
-                            <td>10</td>
-                            <td>Pending</td>
-                            <td><button  class="btn btn-sm btn-block btn-danger " ng-click="pinfo()">Pay</button></td>
-
-
-
-                        </tr>
-                        
-                            <tr>
-                            <td>101</td>
-                            <td>NILESH</td>
-                            <td>Company</td>
-                            <td>10</td>
-                            <td>Pending</td>
-                            <td><button  class="btn btn-sm btn-block btn-danger " ng-click="single()">Pay</button></td>
-
-
-
-                        </tr>
-
-
-                    </tbody>
-
-                </table>
 
             </div>
 
-          
-          
-          
-          </uib-tab>
- 
-    <uib-tab index="3"  >
-      <uib-tab-heading>
-      All Participants
-      </uib-tab-heading>
-     
-               <div class="panel panel-default">
 
-                <div class="panel-heading">
 
-                    <h3 class="panel-title">All Participants</h3>
+        </uib-tab>
+
+        <uib-tab index="3"  >
+            <uib-tab-heading>
+                Paid Participants
+            </uib-tab-heading>
+
+               <div class="row" style="padding-top:1%">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+
+                            <h3 class="panel-title"><span class="label label-success"> Paid </span>  &nbsp;&nbsp; Company Participants</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <div  > 
+                                <input type="text" placeholder="search" class="form-control input-sm" ng-model="companySearch" > 
+                            </div>
+<hr>
+                            
+                            <table class="table table-hover table-condensed table-bordered table-striped" style="font-size:75%">
+                                <thead>
+                                    <tr class="">                <th>Reg No</th>    
+                                        <th>Company Name</th>    
+                                        <th>Type</th>    
+                                        <th style="width:10px">  Users</th>    
+                                        <th>Payment</th>    
+                                        <th style="width:70px">Action</th>    
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+
+                                    <tr ng-repeat=" x in participants.comapany | filter : companySearch" ng-if="x.company_paymant_status == 1">
+                                        <td>{{x.company_order_code}}</td>
+                                        <td>{{x.company_name}}</td>
+                                        <td>{{x.packagers_name}}</td>
+                                        <td>{{x.user_count}}</td>
+                                        <td>
+                                            <span ng-if="x.company_paymant_status == 0" class="label label-danger">Pending</span>
+                                            <span ng-if="x.company_paymant_status == 1" class="label label-success">Paid</span>
+
+                                        </td>
+                                        <td><button  class="btn btn-sm btn-block btn-success " ng-click="pinfoV($index)">More</button></td>
+
+
+
+                                    </tr>
+
+            
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="panel panel-body">
-                    <input type="text" placeholder="search" class="form-control input-sm" ng-model="search"> 
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+
+                        <div class="panel-heading">
+
+                            <h3 class="panel-title"><span class="label label-success"> Paid </span> &nbsp;&nbsp; Individual Participants</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <div > 
+                                <input type="text" placeholder="search" class="form-control input-sm" ng-model="singleSearch" > 
+                            </div>
+                            <hr>
+
+                            <table class="table table-hover table-condensed table-bordered table-striped" style="font-size:75%">
+                                <thead>
+                                    <tr class="">               
+                                        <th>Reg No</th>    
+                                        <th>Name</th>    
+                                        <th>Type</th>    
+                                             
+                                        <th>Payment</th>    
+                                        <th style="width:70px">Action</th>    
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+
+                                    <tr ng-repeat=" x in participants.individual | filter : singleSearch" ng-if="x.payment_status == 1">
+                                           <td>{{x.participant_index_no}}</td>
+                                        <td> {{x.participant_title}} {{x.participant_name}}</td>
+                                        <td>{{x.packagers_name}}</td>
+                                        <td>
+                                            <span ng-if="x.payment_status == 0" class="label label-danger">Pending</span>
+                                            <span ng-if="x.payment_status == 1" class="label label-success">Paid</span>
+
+                                        </td>
+                                        <td><button  class="btn btn-sm btn-block btn-success " ng-click="singleV($index)">More</button></td>
+
+
+
+                                    </tr>
+
+
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
 
                 </div>
-                <table class="table table-hover table-condensed  table-bordered table-striped" style="font-size:85%">
-                    <thead>
-                        <tr class="">                <th>Reg No</th>    
-                            <th>Company Name</th>    
-                            <th>No of users</th>    
-                            <th>Payment</th>    
-                            <th style="width:100px">Action</th>    
-                        </tr>
 
-                    </thead>
-                    <tbody>
-
-                        <tr>
-                            <td>101</td>
-                            <td>NILESH</td>
-                            <td>10</td>
-                            <td>Pending</td>
-                            <td><button  class="btn btn-sm btn-block btn-success " ng-click="pinfo()">View</button></td>
-
-
-
-                        </tr>
-
-
-                    </tbody>
-
-                </table>
 
             </div>
 
-          
-        
-    </uib-tab>
-  </uib-tabset>
+
+
+        </uib-tab>
+    </uib-tabset>
 </section>

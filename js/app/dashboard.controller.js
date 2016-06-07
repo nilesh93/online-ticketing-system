@@ -7,37 +7,52 @@
         .controller('DashboardController', DashboardController);
 
 
-    function DashboardController($scope,$http,BootsrapService){
+    function DashboardController($scope,$http,BootsrapService,RestfulAPI){
 
         console.log("started");
+        $scope.mainTable = [];
 
-        $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
-        $scope.series = ['Series A', 'Series B'];
+        $scope.series = ['Registered', 'Paid'];
+        $http.get(RestfulAPI.services.dashboardReg).success(function(data){
+            $scope.labels = [];
+            $scope.data = [];
+            $scope.data.push([]);
+            $scope.data.push([]);
 
-        $scope.data = [
-            [65, 59, 80, 81, 56, 55, 40],
-            [28, 48, 40, 19, 86, 27, 90]
-        ];
+            $scope.mainTable = data.data;
+            console.log("reg graph",data);
 
-        
-          $scope.labels1 = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+            data.data.map(function(item,key){
+
+                $scope.labels.push(item.name);
+
+                $scope.data[0].push(item.registered);
+                $scope.data[1].push(item.paid);
+
+            });
+
+        });
+
+
+
+        $scope.labels1 = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
         $scope.data1= [300, 500, 100];
-        
-        
-        
-        
-        
-        
-        
-        
-       
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 
-    
- 
+
+
 })();

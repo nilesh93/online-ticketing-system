@@ -11,34 +11,68 @@
         this.descriptionText = 'Here you can quickly bootstrap your AngularJS project.';
 
     })
-    .service('BootsrapService',function($uibModal){
+        .service('BootsrapService',function($uibModal){
 
 
-    var self = this;
+        var self = this;
 
-    self.modal = function(modalObj){
+        self.modal = function(modalObj){
 
-        var modalInstance =  $uibModal.open({
-            animation: true,
-            templateUrl: modalObj.url,
-            controller: modalObj.controller || '',
-            size: modalObj.size || 'lg',
-            scope:modalObj.scope || '',
-            resolve: modalObj.resolve || {}
-            /*{
+            var modalInstance =  $uibModal.open({
+                animation: true,
+                templateUrl: modalObj.url,
+                controller: modalObj.controller || '',
+                size: modalObj.size || 'lg',
+                scope:modalObj.scope || '',
+                resolve: modalObj.resolve || {}
+                /*{
                 items: function (){
                     return $scope.items;
                 } 
             } */
-        });
+            });
 
-        return  modalInstance;
+            return  modalInstance;
 
-    }
+        }
 
 
 
-});
+    })
+        .service('RestfulAPI',function(){
+
+        var url = "http://localhost/ipm-web-services/public/";
+        this.services = {
+
+            dashboardReg : url+"registrationAndPayments",
+            IndividualList : url+"IndividualList",
+            CompanyPayment : url+"CompanyPayment",
+            IndividualsFromCompany : url+"IndividualsFromCompany"
+
+        };
+
+        this.setUrl = function(obj){
+
+             
+            console.log(obj);
+            var str = "?";
+            for (var property in obj) {
+                
+                if (obj.hasOwnProperty(property)) {
+
+                   
+                    obj[property] += "";
+                    if(obj[property].trim() != "" )
+                        str += property+"="+obj[property]+"&";
+
+                }
+            }
+
+            return str;
+        };
+
+
+    });
 })();
 
 

@@ -19,19 +19,19 @@
                     <table class="table table-hover table-condensed" style="font-size:80%">
                         <tbody>
                             <tr>
-                                <td>Infoseek (pvt) Ltd</td>    
+                                <td>{{companyInfo.company_name}}</td>    
                             </tr>
                             <tr>
-                                <td>No 21, Sieble Avenue, Colombo 6</td>    
+                                    <td>{{companyInfo.company_address}}</td>       
                             </tr> 
                             <tr>
-                                <td> T : 011256897 </td>
+                                   <td>T : {{companyInfo.company_phone}}</td>    
                             </tr>
                             <tr>
-                                <td> F : 011256897 </td>
+                                <td> F : {{companyInfo.company_fax}} </td>
                             </tr>
                             <tr>
-                                <td> E : info@infoseek.lk  </td>
+                                <td> E :  {{companyInfo.company_email}}  </td>
                             </tr>
 
                         </tbody>
@@ -46,20 +46,18 @@
                     <table class="table table-hover table-condensed" style="font-size:80%">
                         <tbody>
                             <tr>
-                                <td>Infoseek (pvt) Ltd</td>    
+                                <td>{{companyInfo.company_contact_title}} {{companyInfo.company_contact_name}}</td>    
                             </tr>
                             <tr>
-                                <td>No 21, Sieble Avenue, Colombo 6</td>    
+                                <td>{{companyInfo.company_contact_designation}}</td>    
                             </tr> 
                             <tr>
-                                <td> T : 011256897 </td>
+                                <td> T :{{companyInfo.company_contact_phone}} </td>
                             </tr>
                             <tr>
-                                <td> F : 011256897 </td>
+                                <td> F : {{companyInfo.company_contact_email}} </td>
                             </tr>
-                            <tr>
-                                <td> E : info@infoseek.lk  </td>
-                            </tr>
+                   
 
                         </tbody>
 
@@ -71,118 +69,7 @@
                     <h4 class=" " style="color:#F26922">Payments</h4>
                     <hr>
 
-                    <form class="form-horizontal" style="font-size:80%">
-
-                        <div class="form-group" >
-                            <div class="col-md-6">
-                                <div class="col-md-12">
-                                    <label >
-                                        Payment Method
-
-                                    </label>
-                                </div>
-                                <div class="col-md-12">
-
-                                    <select type="text" class="form-control input-sm">
-                                        <option value="CASH">CASH</option>
-                                        <option value="CHEQUE">CHEQUE</option>
-
-                                    </select>
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="col-md-12">
-                                    <label >
-                                        Amount
-
-                                    </label>
-                                </div>
-                                <div class="col-md-12">
-
-                                    <input type="text" class="form-control input-sm">
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="form-group" >
-                            <div class="col-md-6">
-                                <div class="col-md-12">
-                                    <label >
-                                        Bank
-
-                                    </label>
-                                </div>
-                                <div class="col-md-12">
-
-                                    <input type="text" class="form-control input-sm">
-
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="col-md-12">
-                                    <label >
-                                        Branch
-
-                                    </label>
-                                </div>
-                                <div class="col-md-12">
-
-                                    <input type="text" class="form-control input-sm">
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-group" >
-                            <div class="col-md-6">
-                                <div class="col-md-12">
-                                    <label >
-                                        Cheque No
-
-                                    </label>
-                                </div>
-                                <div class="col-md-12">
-
-                                    <input type="text" class="form-control input-sm">
-
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="col-md-12">
-                                    <label >
-                                        Date
-
-                                    </label>
-                                </div>
-                                <div class="col-md-12">
-
-                                    <input type="date" class="form-control input-sm">
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <div class="form-group" >
-                            <div class="col-md-offset-8 col-md-4" >
-                                <button class="btn btn-success btn-sm btn-block">
-                                    Save
-                                </button>
-
-                            </div>
-                        </div>
-                    </form>
-
+                  <div  ng-include="'pages/payform.html'"></div>
 
 
                 </div>
@@ -195,7 +82,7 @@
         <uib-tab index="1"  >
 
             <uib-tab-heading>
-                Participants <span class="label label-info">10</span>
+                Participants <span class="label label-info">{{companyInfo.user_count}}</span>
             </uib-tab-heading>
             <div class="row"  style="padding-top:1%">
 
@@ -204,7 +91,7 @@
                     <div class="form-group">     
                         <label class="col-md-8 control-label">Search</label>
                         <div class=" col-md-4">
-                        <input type="text" class="form-control input-sm"  placeholder="Search">
+                        <input type="text" class="form-control input-sm" ng-model="CompnayViewSearch"  placeholder="Search">
                         </div>
 
                     </div>
@@ -213,18 +100,27 @@
                 <table class="table table-hover table-bordered table-striped" style="font-size:80%; ">
                     <thead>
                         <tr  class="success" >
+                            <td>Reg No</td>
                             <th>Name</th>
                             <th>NIC</th>
                             <th>Designation</th>
+                            <th>University</th>
                             <th>Contact</th>
                         </tr>
                     </thead>
                     <tbody>
-
-                        <td> Nilesh Jayanandaa</td>
-                        <td> 12312341231</td>
-                        <td> asdasd</td>
-                        <td> 23123123</td>
+                        
+                       <tr ng-repeat="x in pList | filter  :CompnayViewSearch">
+                           <td>{{x.participant_index_no}}</td>
+                           <td>{{x.participant_title}}  {{x.participant_name}}</td>
+                           <td>{{x.participant_nic}}</td>
+                           <td>{{x.participant_designation}}</td>
+                           <td>{{x.participant_university}}</td>
+                           <td>{{x.participant_phone}}</td>
+                        
+                        
+                        
+                        </tr>
 
 
                     </tbody>

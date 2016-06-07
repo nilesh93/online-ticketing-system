@@ -9,6 +9,7 @@
 
     function SpeakerController($scope,$http,BootsrapService){
 
+        var self = this;
 
         $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
         $scope.series = ['Series A', 'Series B'];
@@ -21,12 +22,33 @@
         
             $scope.pinfo = function(){
         
-          self.policeModalInstance  =  BootsrapService.modal({
+          self.modal  =  BootsrapService.modal({
                     url:'pages/speaker-modal.html',
                     scope: $scope
                 });
     
     };
+        
+        
+        
+        
+         
+        $scope.cancel = function () {
+
+             self.modal.dismiss('cancel');
+
+             
+        };
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
 })();
