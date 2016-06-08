@@ -6,8 +6,8 @@
 <div class="modal-body">
 
 
-    <uib-tabset active="active">
-        <uib-tab index="0" heading="Payments">
+    <uib-tabset >
+        <uib-tab active="active" index="5" heading="Payments">
 
 
 
@@ -22,10 +22,10 @@
                                 <td>{{companyInfo.company_name}}</td>    
                             </tr>
                             <tr>
-                                    <td>{{companyInfo.company_address}}</td>       
+                                <td>{{companyInfo.company_address}}</td>       
                             </tr> 
                             <tr>
-                                   <td>T : {{companyInfo.company_phone}}</td>    
+                                <td>T : {{companyInfo.company_phone}}</td>    
                             </tr>
                             <tr>
                                 <td> F : {{companyInfo.company_fax}} </td>
@@ -57,7 +57,7 @@
                             <tr>
                                 <td> F : {{companyInfo.company_contact_email}} </td>
                             </tr>
-                   
+
 
                         </tbody>
 
@@ -69,8 +69,8 @@
                     <h4 class=" " style="color:#F26922">Payments</h4>
                     <hr>
 
-                  <div  ng-include="'pages/payform.html'"></div>
 
+                    <div  ng-include="'pages/payInfo.html'"></div>
 
                 </div>
 
@@ -79,7 +79,7 @@
             </div> 
 
         </uib-tab>
-        <uib-tab index="1"  >
+        <uib-tab index="6"  >
 
             <uib-tab-heading>
                 Participants <span class="label label-info">{{companyInfo.user_count}}</span>
@@ -91,7 +91,7 @@
                     <div class="form-group">     
                         <label class="col-md-8 control-label">Search</label>
                         <div class=" col-md-4">
-                        <input type="text" class="form-control input-sm" ng-model="CompnayViewSearch"  placeholder="Search">
+                            <input type="text" class="form-control input-sm" ng-model="CompnayViewSearch"  placeholder="Search">
                         </div>
 
                     </div>
@@ -109,17 +109,17 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
-                       <tr ng-repeat="x in pList | filter  :CompnayViewSearch">
-                           <td>{{x.participant_index_no}}</td>
-                           <td>{{x.participant_title}}  {{x.participant_name}}</td>
-                           <td>{{x.participant_nic}}</td>
-                           <td>{{x.participant_designation}}</td>
-                           <td>{{x.participant_university}}</td>
-                           <td>{{x.participant_phone}}</td>
-                        
 
-                        
+                        <tr ng-repeat="x in pList | filter  :CompnayViewSearch">
+                            <td>{{x.participant_index_no}}</td>
+                            <td>{{x.participant_title}}  {{x.participant_name}}</td>
+                            <td>{{x.participant_nic}}</td>
+                            <td>{{x.participant_designation}}</td>
+                            <td>{{x.participant_university}}</td>
+                            <td>{{x.participant_phone}}</td>
+
+
+
                         </tr>
 
 

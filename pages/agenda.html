@@ -2,52 +2,56 @@
     <h2>Agenda</h2>
 
     <div class="">
-    
-    <div class="breadcrumb-wrapper hidden-xs">
-    <button class="btn btn-success btn-sm addBtn" ><span class="fa fa-plus"></span> &nbsp; NEW</button>
+
+        <div class="breadcrumb-wrapper hidden-xs">
+            <button class="btn btn-success btn-sm addBtn " ng-click="pinfo()" ><span class="fa fa-plus"></span> &nbsp; NEW</button>
         </div>
     </div>
 </div>
 <section id="main-content">
-    <div class="row">
+    <div ng-repeat="x in agendaList">
+        <center> <h1> <span class="label label-info">{{x.date}}</span> </h1> </center>
+        <hr>
+        <div ng-repeat="s in x.data" class="row">
 
-        <div class="col-md-1 round" style="">
-            <div style=" border-radius: 10%; background: #BADA55; color:#fff;padding-top:30%;padding-bottom:30%;margin-top:10%" >
-                <h1 style=" color:#fff;font-size:200%"  > <center>01</center></h1> 
-            </div>
-        </div>
-        <div class="col-md-11">
-
-            <div class="panel panel-deafult">
-                <div class="panel-body">
-                    <div class="col-md-2" >
-
-                        <h1 style="margin-top:15%"> 10:00 PM</h1>
-                       
-                    </div>
-                    <div class="col-md-10" style="border-left:2px solid grey">
-                        <div class="row">
-                        <div class="col-md-10">
-                              <h3> Agenda name</h3>
-                       <h1> <small>Nilesh</small>  </h1>
-                        </div>
-                            <div class="col-md-2">
-                            
-                                 <button class="btn  btn-sm" style="width:40%"><span class="fa fa-pencil"></span></button>
-                                       <button class="btn btn-danger btn-sm" style="width:40%"><span class="fa fa-trash"></span></button>
-                            </div>
-                                 
-                        </div>
-                      
-                        <hr>
-                        <p> Description asdasdada asdasdadca fadadasd</p>
-
-                    </div>
-
+            <div class="col-md-1 round" style="">
+                <div style=" border-radius: 10%; background: #BADA55; color:#fff;padding-top:30%;padding-bottom:30%;margin-top:10%" >
+                    <h1 style=" color:#fff;font-size:200%"  > <center>{{$index + 1}}</center></h1> 
                 </div>
             </div>
+            <div class="col-md-11">
+
+                <div class="panel panel-deafult">
+                    <div class="panel-body">
+                        <div class="col-md-2" >
+
+                            <h1 style="margin-top:15%"> {{s.start_time}}</h1>
+
+                        </div>
+                        <div class="col-md-10" style="border-left:2px solid grey">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <h3> {{s.item_name}}</h3>
+                                    <h1> <small>{{s.speaker_name}}</small>  </h1>
+                                </div>
+                                <div class="col-md-2">
+
+                                    <button class="btn  btn-sm" style="width:40%" ng-click="edit($index,$parent.$index)"><span class="fa fa-pencil"></span></button>
+                                    <button ng-click="del(s.id)" class="btn btn-danger btn-sm" style="width:40%"><span class="fa fa-trash"></span></button>
+                                </div>
+
+                            </div>
+
+                            <hr>
+                            <p> {{s.item_description}}</p>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
 
         </div>
-
     </div>
-    </section>
+</section>

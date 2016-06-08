@@ -3,5 +3,6 @@
         'ui.router',
         'ui.bootstrap',
         'chart.js',
-      'angular-input-stars'
+      'angular-input-stars',
+      'countrySelect'
       ]);

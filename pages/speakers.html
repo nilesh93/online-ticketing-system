@@ -11,62 +11,67 @@
 <section id="main-content">
     <div class="row">
         <div class="col-md-12">
-            <input class="form-control input-sm" placeholder="Search">
+            <input class="form-control input-sm" ng-model="speakerSearch" placeholder="Search">
         </div>
     </div>
     <hr>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" ng-repeat=" x in speakerList | filter:speakerSearch" >
             <div class="panel panel-default">
                 <div class="panel-body">
 
                     <div class="col-md-4">
 
-                        <img class="img img-responsive" ng-src="http://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg">
+                        <img class="img img-responsive" ng-src="{{x.speaker_image ==''?'http://www.finearttips.com/wp-content/uploads/2010/05/avatar.jpg':x.speaker_image}}">
 
 
                     </div>
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-md-9">
-                                <h3>Nilesh Jayanandana</h3>
-                                <h1><small>Country</small></h1>
+                            <div class="col-md-7">
+                                <h4>{{x.speaker_name}}</h4>
+                                <h1><small>{{x.speaker_country}}</small></h1>
                             </div>
 
-                            <div class="col-md-3" style="padding-right:0cm">
-                                    
-                                 <button class="btn  btn-sm" style="width:40%"><span class="fa fa-pencil"></span></button>
-                                       <button class="btn btn-danger btn-sm" style="width:40%"><span class="fa fa-trash"></span></button>
+                            <div class="col-md-5" style="padding-right:0cm">
+
+                                <button class="btn  btn-sm" style="width:40%" ng-click="edit($index)"><span class="fa fa-pencil"></span></button>
+                                <button ng-click="del(x.speaker_id)" class="btn btn-danger btn-sm" style="width:40%"><span class="fa fa-trash"></span></button>
                             </div>
 
                         </div>
                         <hr>
-                         <input-stars max="5" ng-model="YourCtrl.property"></input-stars>
+                        <input-stars max="5" readonly  ng-model="x.rating"></input-stars>
 
-                        <p>sdasdasdadf asdasdasd asdsda</p>
+                        <p>{{x.speaker_description}}</p>
                     </div>
 
                 </div>
                 <table class="table table-hover table-striped table-bordered" style="font-size:80%">
-                <thead>
-                    <tr class="success">
-                    <td style="width:100px"><b>Time </b></td>
-                    <td><b>Agenda Name</b></td>
-                    </tr>
-                    
-                </thead>
-                <tbody>
-                  <tr>
-                    <td> 10.00pm</td>
-                    <td> asdafasf</td>
-                    </tr>  
-                    
-                </tbody>
-                </table>
-                <canvas id="bar" class="chart chart-bar"
-  chart-data="data" chart-labels="labels" height="80"> chart-series="series"
-                </canvas>
+                    <thead>
+                        <tr class="success">
+                            <td style="width:100px"><b>Date </b></td>
+                            <td style="width:100px"><b>Time </b></td>
 
+                            <td><b>Agenda Name</b></td>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat=" s in x.agenda">
+                            <td> {{s.item_date_occurs}}</td>
+                            <td> {{s.start_time}}</td>
+
+                            <td> {{s.item_name}}</td>
+                        </tr>  
+
+                    </tbody>
+                </table>
+                <div style="padding:5%">
+                <canvas id="bar" class="chart chart-bar"
+                        chart-data="[x.chart]" chart-labels="x.labels" height="100" >  
+                </canvas>
+                    </div>
             </div>
 
         </div>

@@ -47,8 +47,16 @@
             dashboardReg : url+"registrationAndPayments",
             IndividualList : url+"IndividualList",
             CompanyPayment : url+"CompanyPayment",
-            IndividualsFromCompany : url+"IndividualsFromCompany"
-
+            IndividualsFromCompany : url+"IndividualsFromCompany",
+            IndividualPayment : url+"IndividualPayment",
+            showAllSpeakers: url+"showAllSpeakers",
+            addSpeakers:url+"addSpeakers",
+            UpdateSpeakers:url+"UpdateSpeakers",
+            deleteSpeaker:url+"deleteSpeaker",
+            showAgenda:url+"showAgenda",
+            saveAgenda:url+"saveAgenda",
+            updateAgenda:url+"updateAgenda",
+            deleteAgendaItemByID:url+"deleteAgendaItemByID"
         };
 
         this.setUrl = function(obj){

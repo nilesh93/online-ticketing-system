@@ -1,0 +1,67 @@
+  
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Insert Agenda</h4>
+                    </div>
+                    <div class="modal-body">
+                                            
+                        <form class="form-horizontal">
+                        <div class="form-group">
+                           <label class="col-md-2 control-label" >Title</label> 
+                            <div class="col-md-10">
+                                   <input class="form-control input-sm" ng-model="agenda.name">
+                            </div>
+                     
+                        </div>
+                            
+                        <div class="form-group">
+                           <label class="col-md-2 control-label">Time</label> 
+                             <div class="col-md-10">
+                          <input type="text" class="form-control input-sm" ng-model="agenda.time">
+                            </div>
+                            
+                        </div>    
+                            
+                            
+                          <div class="form-group">
+                           <label class="col-md-2 control-label">Date</label> 
+                             <div class="col-md-10">
+                          <input type="text" class="form-control input-sm" ng-model="agenda.date">
+                            </div>
+                            
+                        </div>     
+                            
+                             <div class="form-group">
+                           <label class="col-md-2 control-label">Speaker</label> 
+                             <div class="col-md-10">
+                          <select   class="form-control input-sm" ng-model="agenda.speaker">
+                              <option value="{{x.speaker_id}}" ng-repeat=" x in speakerList">
+                              {{x.speaker_name}}
+                              
+                              </option>
+                                 </select>
+                            </div>
+                            
+                        </div>  
+                            
+                            
+                        <div class="form-group">
+                           <label class="col-md-2 control-label">Description</label> 
+                             <div class="col-md-10">
+                              <textarea class="form-control input-sm" ng-model="agenda.desc"></textarea>
+                            </div>
+                          
+                        </div> 
+                            
+                            
+                        </form>
+                        
+
+                        
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"  ng-click="cancel()">Close</button>
+                        <button type="button"  class="btn btn-primary" ng-click="save()">Save changes</button>
+                    </div>
+          
