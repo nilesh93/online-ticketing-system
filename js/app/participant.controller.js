@@ -63,6 +63,7 @@
 
 
             $scope.companyInfo = $scope.participants.comapany[id];
+            $scope.companyInfo.id = $scope.participants.comapany[id].company_id;
 
             console.log($scope.participants.comapany[id]);
             $http.get(RestfulAPI.services.IndividualsFromCompany+"?companyId="+$scope.companyInfo.company_id).success(function(data){
@@ -90,6 +91,8 @@
             $scope.pay.amount =$scope.participants.individual[id].amount_disply;
 
             $scope.companyInfo = $scope.participants.individual[id];
+            $scope.companyInfo.id = $scope.participants.individual[id].participant_company;
+            
 
             self.modal  =  BootsrapService.modal({
                 url:'pages/single-view.html',
