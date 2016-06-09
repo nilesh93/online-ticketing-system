@@ -41,7 +41,7 @@
     })
         .service('RestfulAPI',function(){
 
-        var url = "http://localhost/ipm-web-services/public/";
+        var url = "/ipm-web-services/public/index.php/";
         this.services = {
 
             dashboardReg : url+"registrationAndPayments",
