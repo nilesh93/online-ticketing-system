@@ -143,12 +143,9 @@
                 $http.get(RestfulAPI.services.CompanyPayment+datastring).success(function(data){
 
                     init();
-                  //  $scope.cancel();
+                    $scope.cancel();
                     swal("Saved!", "", "success");
-         
-
-                    $window.open(data.PDF_file, '_blank');
-                    
+                    $window.open(data.PDF_file, '_blank');              
 
                 }).error(function(data){
 
@@ -172,6 +169,7 @@
                     init();
                     $scope.cancel();
                     swal("Saved!", "", "success");
+                    $window.open(data.PDF_file, '_blank');
 
 
                 }).error(function(data){
