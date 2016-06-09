@@ -7,7 +7,7 @@
         .controller('ParticipantController', ParticipantController);
 
 
-    function ParticipantController($scope,$http,BootsrapService,RestfulAPI){
+    function ParticipantController($scope,$http,BootsrapService,RestfulAPI,$window){
 
 
         var self = this;
@@ -143,9 +143,12 @@
                 $http.get(RestfulAPI.services.CompanyPayment+datastring).success(function(data){
 
                     init();
-                    $scope.cancel();
+                  //  $scope.cancel();
                     swal("Saved!", "", "success");
+         
 
+                    $window.open(data.PDF_file, '_blank');
+                    
 
                 }).error(function(data){
 
