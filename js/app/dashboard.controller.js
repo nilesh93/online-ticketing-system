@@ -9,6 +9,7 @@
 
     function DashboardController($scope,$http,BootsrapService,RestfulAPI){
 
+         var login = RestfulAPI.checkLogin();
         console.log("started");
         $scope.mainTable = [];
 

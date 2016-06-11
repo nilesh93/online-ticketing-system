@@ -1,0 +1,51 @@
+<div class="pageheader ng-scope">
+    <h2>Users</h2>
+
+    <div class="">
+        <div class="breadcrumb-wrapper hidden-xs">
+            <button class="btn btn-success btn-sm addBtn" ng-click="pinfo()"><span class="fa fa-plus"></span> &nbsp; NEW</button>
+        </div>
+    </div>
+</div>
+<section id="main-content">
+    <div class="row">
+        <div class="col-md-12" style="margin-bottom:2% ">
+        <input type="text" placeholder="Search" class="form-control input-sm" ng-model="userSearch"> 
+</div>
+        <div class="col-md-12">
+            <div class="panel panel-default">
+
+            <table class="table table-hover table-striped table-bordered">
+                
+                <thead>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Permissions</td>
+                    <td></td>
+                     
+                    
+                </thead>
+                <tbody>
+                    <tr ng-repeat="x in users | filter:userSearch">
+                        <td>{{x.username}}</td>
+                        <td>{{x.email}}</td>
+                        <td>
+                            <span ng-if="s.perm" class="label label-info" ng-repeat="s in x.permissions" style="margin-right:1%">
+                             {{s.name}}
+                            </span>  
+                            
+                        </td>
+                        <td> <button ng-disabled="$index == 0"  ng-click="edit($index)" class="btn btn-success btn-sm"><span class="fa fa-pencil"></span></button> <button  ng-disabled="$index == 0" ng-click="del(x.id)" class="btn btn-danger btn-sm"><span class="fa fa-trash"></span></button></td>
+                        
+                    </tr>
+                    
+                    
+                </tbody>
+                
+                
+                
+            </table>
+</div>
+        </div>
+    </div>
+</section>

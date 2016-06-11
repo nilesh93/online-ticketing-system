@@ -63,9 +63,9 @@
         <!-- Page Wrapper-->
         <section id="main-wrapper" class="theme-default">
             <!-- Page wrapper -->
-            <header id="header" ng-include="'views/header.html'"></header>
+            <header id="header" ng-if="loginStatus" ng-include="'views/header.html'"></header>
             <!-- Left Sidebar Navigation -->
-            <aside class="sidebar sidebar-left" ng-include="'views/left-sidebar.html'"></aside>
+            <aside class="sidebar sidebar-left" ng-if="loginStatus" ng-include="'views/left-sidebar.html'"></aside>
             <!-- Content wraper -->
             <section class="main-content-wrapper">
                 <!-- Main content view  -->
@@ -107,6 +107,7 @@
         <script src="js/app/agenda.controller.js"></script>
         <script src="js/app/participant.controller.js"></script>
         <script src="js/app/speaker.controller.js"></script>
+        <script src="js/app/user.controller.js"></script>
 
     </body>
 

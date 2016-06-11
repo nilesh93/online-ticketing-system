@@ -4,38 +4,44 @@
         <i class="on border-dark animated bounceIn"></i>
     </div>
     <div class="profile-body dropdown">
-        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><h4>Nilesh Jayanandana <span class="caret"></span></h4></a>
-        <small class="title">Front-end Engineer</small>
+        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><h4> {{userInfo.username || 'Not Logged In'}} </h4></a>
+        
+                <small class="title">{{userInfo.email || ""}}</small>
+ 
         </div>
 </div>
 <nav>
     <h5 class="sidebar-header">Navigation</h5>
     <!-- location directive.js | data-nav-toggle-sub maps to -->
     <ul class="nav nav-pills nav-stacked" data-nav-toggle-sub>
-        <li ui-sref-active="active">
-            <a href="" ui-sref="home" title="Dashboard">
+        <li ui-sref-active="active" ng-if="(userInfo.permissions[0].perm || false) ">
+            <a href="" ui-sref="dashboard" title="Dashboard">
                 <i class="fa fa-fw fa-tachometer"></i> Dashboard
             </a>
         </li>
         
-          <li ui-sref-active="active">
-            <a href="" ui-sref="participants" title="Dashboard">
+          <li ui-sref-active="active" ng-if="(userInfo.permissions[1].perm || false) ">
+            <a href="" ui-sref="participants" title="Dashboard" >
                 <i class="fa fa-fw fa-user"></i> Participants
             </a>
         </li>
         
-                  <li ui-sref-active="active">
+                  <li ui-sref-active="active" ng-if="(userInfo.permissions[2].perm || false) ">
             <a href="" ui-sref="agenda" title="Dashboard">
                 <i class="fa fa-fw fa-user"></i> Agenda
             </a>
         </li>
         
-                  <li ui-sref-active="active">
+                  <li ui-sref-active="active" ng-if="(userInfo.permissions[3].perm || false) ">
             <a href="" ui-sref="speakers" title="Dashboard">
                 <i class="fa fa-fw fa-user"></i> Speakers
             </a>
         </li>
-        
+            <li ui-sref-active="active" ng-if="(userInfo.permissions[4].perm || false) ">
+            <a href="" ui-sref="users" title="Dashboard">
+                <i class="fa fa-fw fa-user"></i> Users
+            </a>
+        </li>
         
            </ul>
 </nav>

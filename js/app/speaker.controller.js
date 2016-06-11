@@ -9,6 +9,7 @@
 
     function SpeakerController($scope,$http,BootsrapService,RestfulAPI){
 
+         var login = RestfulAPI.checkLogin();
         var self = this;
 
         $scope.speaker = {};

@@ -39,7 +39,7 @@
 
 
     })
-        .service('RestfulAPI',function(){
+        .service('RestfulAPI',function($state,$rootScope){
 
         var url = "/ipm-web-services/public/index.php/";
         this.services = {
@@ -56,7 +56,12 @@
             showAgenda:url+"showAgenda",
             saveAgenda:url+"saveAgenda",
             updateAgenda:url+"updateAgenda",
-            deleteAgendaItemByID:url+"deleteAgendaItemByID"
+            deleteAgendaItemByID:url+"deleteAgendaItemByID",
+            getusers:url+"getusers",
+            register:url+"register",
+            editUser:url+"edit",
+            deleteUser:url+"deleteUser",
+            login:url+"login"
         };
 
         this.setUrl = function(obj){
@@ -79,6 +84,20 @@
             return str;
         };
 
+        
+        this.checkLogin = function(){
+            
+            if($rootScope.loginStatus){
+                
+                return true;
+                
+            }else{
+                
+                $state.go('login');
+                
+                return false;
+            }
+        };
 
     });
 })();

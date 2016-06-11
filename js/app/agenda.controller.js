@@ -7,9 +7,14 @@
         .controller('AgendaController', AgendaController);
 
 
-    function AgendaController($scope,$http,BootsrapService,RestfulAPI){
+    function AgendaController($scope,$http,BootsrapService,RestfulAPI,$rootScope){
 
+      var login = RestfulAPI.checkLogin();
+     
         function init(){
+            
+            
+            
             $http.get(RestfulAPI.services.showAgenda).success(function(data){
 
                 console.log("data",data);

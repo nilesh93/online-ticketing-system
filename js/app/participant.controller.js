@@ -9,6 +9,7 @@
 
     function ParticipantController($scope,$http,BootsrapService,RestfulAPI,$window){
 
+         var login = RestfulAPI.checkLogin();
 
         var self = this;
 

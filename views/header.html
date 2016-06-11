@@ -12,4 +12,28 @@
     
     
 </ul>
+<ul class="nav navbar-nav navbar-right" style="margin-right:2%" ng-controller="LoginController">
+                <li class="dropdown profile hidden-xs">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="meta">
+                            <span class="avatar">
+                               <!-- <img ng-src="assets/img/profile.jpg" class="img-circle" alt=""> -->
+                            </span>
+                        <span class="text">{{userInfo.username || 'Not Logged In'}}</span>
+                        <span class="caret"></span>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight" role="menu" >
+                        <li>
+                          
+                 
+                        <li>
+                            <a href="javascript:void(0);" ng-click="logout()" ng-if="loginStatus">
+                                <span class="icon"><i class="fa fa-sign-out"></i>
+                                </span>Logout</a>
+                        </li>
+                    </ul>
+                </li>
+               
+            </ul>
  
