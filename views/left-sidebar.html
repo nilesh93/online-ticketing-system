@@ -43,5 +43,10 @@
             </a>
         </li>
         
+         <li ui-sref-active="active" ng-if="(userInfo.permissions[6].perm || false) ">
+            <button class="btn btn-sm btn-info btn-block"> <i class="fa fa-download" aria-hidden="true"></i> QR PDF</button>
+        </li>
+        
+        
            </ul>
 </nav>
