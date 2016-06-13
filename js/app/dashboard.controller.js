@@ -33,6 +33,25 @@
             });
 
         });
+        
+         $scope.speakerLabels = [];
+            $scope.speakerData = [
+            []
+            ];
+        
+        $http.get(RestfulAPI.services.allspeakerRatings).success(function(data){
+            $scope.speakerLabels = [];
+            $scope.speakerData = [
+            []
+            ];
+            
+            $scope.speakerList = data;
+            data.map(function(item){
+                  $scope.speakerLabels.push(item.speaker_name);
+                  $scope.speakerData[0].push(parseFloat(item.rating));
+            });
+            
+        });
 
 
 

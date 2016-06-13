@@ -61,7 +61,9 @@
             register:url+"register",
             editUser:url+"edit",
             deleteUser:url+"deleteUser",
-            login:url+"login"
+            login:url+"login",
+            allPatPDFS:url+"allPatPDFS",
+            allspeakerRatings:url+"allspeakerRatings"
         };
 
         this.setUrl = function(obj){

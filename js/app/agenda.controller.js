@@ -61,6 +61,7 @@
          $scope.edit = function(index,parent){
 
             $scope.flag = "edit";
+          
  
             $scope.pinfo();
              console.log("index" ,index);
@@ -70,8 +71,10 @@
              $scope.agenda.desc  = $scope.agendaList[parent].data[index].item_description;
              $scope.agenda.time  = $scope.agendaList[parent].data[index].item_time;
              $scope.agenda.date  = $scope.agendaList[parent].data[index].item_date_occurs;
-             $scope.agenda.speaker   = $scope.agendaList[index].speaker_id;
+             $scope.agenda.speaker   = $scope.agendaList[parent].data[index].speaker_id;
              $scope.agenda.id = $scope.agendaList[parent].data[index].id;
+            
+            
              
              console.log($scope.agenda);
              console.log($scope.agendaList[index]);

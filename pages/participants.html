@@ -52,7 +52,7 @@
                                             <span ng-if="x.company_paymant_status == 1" class="label label-success">Paid</span>
 
                                         </td>
-                                        <td><button  class="btn btn-sm btn-block btn-success " ng-click="pinfo($index)">Pay</button></td>
+                                        <td><button  class="btn btn-sm btn-block btn-success " ng-click="pinfo(participants.comapany.indexOf(x))">Pay</button></td>
 
 
 
@@ -107,7 +107,7 @@
                                             <span ng-if="x.payment_status == 1" class="label label-success">Paid</span>
 
                                         </td>
-                                        <td><button  class="btn btn-sm btn-block btn-success " ng-click="single($index)">Pay</button></td>
+                                        <td><button  class="btn btn-sm btn-block btn-success " ng-click="single(participants.individual.indexOf(x))">Pay</button></td>
 
 
 
@@ -173,7 +173,7 @@
                                             <span ng-if="x.company_paymant_status == 1" class="label label-success">Paid</span>
 
                                         </td>
-                                        <td><button  class="btn btn-sm btn-block btn-success " ng-click="cInfo($index)">More</button></td>
+                                        <td><button  class="btn btn-sm btn-block btn-success " ng-click="cInfo(participants.comapany.indexOf(x))">More</button></td>
 
 
 
@@ -227,7 +227,7 @@
                                             <span ng-if="x.payment_status == 1" class="label label-success">Paid</span>
 
                                         </td>
-                                        <td><button  class="btn btn-sm btn-block btn-success " ng-click="sInfo($index)">More</button></td>
+                                        <td><button  class="btn btn-sm btn-block btn-success " ng-click="sInfo(participants.individual.indexOf(x))">More</button></td>
 
 
 

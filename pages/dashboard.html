@@ -222,4 +222,48 @@
 
         </div>
     </div>
+    <div class="row">
+        
+                <div class="col-md-12 col-lg-12">
+
+            <div class="panel panel-default"  >
+
+                <div class="panel-heading">
+
+                    <h3 class="panel-title">Speaker Ratings </h3>
+
+                </div>
+
+                <div class="panel-body" >
+ 
+ 
+                    <canvas id="bar" class="chart chart-bar"
+                            chart-data="speakerData" chart-labels="speakerLabels"   height="100">
+                    </canvas>
+                </div>
+                <table class="table table-hover table-striped table-bordered" style="font-size:80%">
+                    <thead>
+                        <tr class="info">
+                    <td>Speaker Name</td>
+                            <td style="width:80px"><center>Rating</center></td>
+                           
+                            </tr>
+                    </thead>
+                <tbody>
+                    <tr  class="info" ng-repeat=" x in speakerList">
+                    <td>{{x.speaker_name}}</td>
+                    <td><center>{{x.rating}} </center></td>
+                   
+                    
+                    </tr>
+                </tbody>
+                
+                </table>
+            </div>
+
+        </div>
+        
+        
+        
+    </div>
 </section>

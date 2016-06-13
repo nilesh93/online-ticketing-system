@@ -51,6 +51,7 @@
             $scope.pay.amount =$scope.participants.individual[id].amount_disply;
 
             $scope.companyInfo = $scope.participants.individual[id];
+            console.log(companyInfo);
 
             self.modal  =  BootsrapService.modal({
                 url:'pages/single-participant.html',
@@ -92,7 +93,7 @@
             $scope.pay.amount =$scope.participants.individual[id].amount_disply;
 
             $scope.companyInfo = $scope.participants.individual[id];
-            $scope.companyInfo.id = $scope.participants.individual[id].participant_company;
+            $scope.companyInfo.id = $scope.participants.individual[id].participant_id;
             
 
             self.modal  =  BootsrapService.modal({
